@@ -1,0 +1,1417 @@
+# Tested on Deeptest release 1.12.0
+cbmcArguments:
+  java-generate-no-comments: true
+phases:
+-
+  timeout: 60
+  cbmcArguments:
+    max-nondet-array-length: 10
+    unwind: 1
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 10
+    unwind: 1
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 4
+    load-containing-class-only: true
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 50
+    max-nondet-string-length: 50
+    unwind: 4
+    load-containing-class-only: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 130
+    max-nondet-string-length: 110
+    unwind: 10
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 300
+    max-nondet-string-length: 100
+    unwind: 10
+units:
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/BulkFixNodePropertiesCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/BulkFixNodePropertiesCommand.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/DatabaseService.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/DatabaseService.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/graph/Node.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/graph/Node.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/util/Iterables.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/util/Iterables.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/PropertyView.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/PropertyView.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/SecurityContext.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/SecurityContext.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/error/FrameworkException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/error/FrameworkException.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/app/StructrApp.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/app/StructrApp.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/converter/PropertyConverter.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/converter/PropertyConverter.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/AbstractNode.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/AbstractNode.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/Property.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/Property.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/PropertyKey.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/PropertyKey.java
+    # Child of BulkFixNodePropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/SchemaHelper.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/SchemaHelper.java
+  - target:
+    - dir: structr-modules/structr-java-parser-module/target/classes
+      file: org/structr/javaparser/MethodVisitorAdapter.class
+      sourceDir: structr-modules/structr-java-parser-module/src/main/java
+      sourceFile: org/structr/javaparser/MethodVisitorAdapter.java
+    # Child of MethodVisitorAdapter.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/app/App.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/app/App.java
+    # Child of MethodVisitorAdapter.class
+    - dir: structr-modules/structr-java-parser-module/target/classes
+      file: org/structr/javaparser/entity/JavaClass.class
+      sourceDir: structr-modules/structr-java-parser-module/src/main/java
+      sourceFile: org/structr/javaparser/entity/JavaClass.java
+    # Child of MethodVisitorAdapter.class
+    - dir: structr-modules/structr-java-parser-module/target/classes
+      file: org/structr/javaparser/entity/Method.class
+      sourceDir: structr-modules/structr-java-parser-module/src/main/java
+      sourceFile: org/structr/javaparser/entity/Method.java
+  - target:
+    - dir: structr-modules/structr-file-access-module/target/classes
+      file: org/structr/files/ssh/AbstractTerminalEmulator.class
+      sourceDir: structr-modules/structr-file-access-module/src/main/java
+      sourceFile: org/structr/files/ssh/AbstractTerminalEmulator.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/schema/SchemaService.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/SchemaService.java
+    # Child of SchemaService.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/config/Settings.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/config/Settings.java
+    # Child of SchemaService.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/service/Command.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/service/Command.java
+    # Child of SchemaService.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/service/Service.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/service/Service.java
+    # Child of SchemaService.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/service/ServiceDependency.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/service/ServiceDependency.java
+    # Child of SchemaService.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/service/StructrServices.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/service/StructrServices.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/AccessPathCache.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/AccessPathCache.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/error/ErrorBuffer.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/error/ErrorBuffer.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/error/ErrorToken.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/error/ErrorToken.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/error/InstantiationErrorToken.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/error/InstantiationErrorToken.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/GraphObject.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/GraphObject.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/Services.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/Services.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/SchemaNode.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/SchemaNode.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/SchemaRelationshipNode.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/SchemaRelationshipNode.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/FlushCachesCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/FlushCachesCommand.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/NodeInterface.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/NodeInterface.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/NodeService.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/NodeService.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/Tx.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/Tx.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/search/SearchCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/search/SearchCommand.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/compiler/BlacklistSchemaNodeWhenMissingPackage.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/compiler/BlacklistSchemaNodeWhenMissingPackage.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/compiler/BlacklistUnlicensedTypes.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/compiler/BlacklistUnlicensedTypes.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/compiler/ExtendNotionPropertyWithUuid.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/compiler/ExtendNotionPropertyWithUuid.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/compiler/MigrationHandler.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/compiler/MigrationHandler.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/compiler/NodeExtender.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/compiler/NodeExtender.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/compiler/RemoveClassesWithUnknownSymbols.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/compiler/RemoveClassesWithUnknownSymbols.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/compiler/RemoveDuplicateClasses.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/compiler/RemoveDuplicateClasses.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/compiler/RemoveMethodsWithUnusedSignature.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/compiler/RemoveMethodsWithUnusedSignature.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/export/StructrSchema.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/export/StructrSchema.java
+    # Child of SchemaService.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/json/JsonSchema.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/json/JsonSchema.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/console/shell/InitConsoleCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/console/shell/InitConsoleCommand.java
+    # Child of InitConsoleCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/Principal.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/Principal.java
+    # Child of InitConsoleCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/BulkCreateLabelsCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/BulkCreateLabelsCommand.java
+    # Child of InitConsoleCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/BulkRebuildIndexCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/BulkRebuildIndexCommand.java
+    # Child of InitConsoleCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/BulkSetUuidCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/BulkSetUuidCommand.java
+    # Child of InitConsoleCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/MaintenanceCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/MaintenanceCommand.java
+    # Child of InitConsoleCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/NodeServiceCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/NodeServiceCommand.java
+    # Child of InitConsoleCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/util/Writable.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/util/Writable.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/websocket/command/dom/CreateAndAppendDOMNodeCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/websocket/command/dom/CreateAndAppendDOMNodeCommand.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/NodeAttribute.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/NodeAttribute.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/PropertyMap.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/PropertyMap.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/dom/DOMElement.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/dom/DOMElement.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/dom/DOMNode.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/dom/DOMNode.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/dom/Page.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/dom/Page.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/dom/Template.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/dom/Template.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/websocket/StructrWebSocket.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/websocket/StructrWebSocket.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/websocket/command/AbstractCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/websocket/command/AbstractCommand.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/websocket/command/CreateComponentCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/websocket/command/CreateComponentCommand.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/websocket/message/MessageBuilder.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/websocket/message/MessageBuilder.java
+    # Child of CreateAndAppendDOMNodeCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/websocket/message/WebSocketMessage.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/websocket/message/WebSocketMessage.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/websocket/command/ListSchemaPropertiesCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/websocket/command/ListSchemaPropertiesCommand.java
+    # Child of ListSchemaPropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/GraphObjectMap.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/GraphObjectMap.java
+    # Child of ListSchemaPropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/GenericNode.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/GenericNode.java
+    # Child of ListSchemaPropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/SchemaProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/SchemaProperty.java
+    # Child of ListSchemaPropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/BooleanProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/BooleanProperty.java
+    # Child of ListSchemaPropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/GenericProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/GenericProperty.java
+    # Child of ListSchemaPropertiesCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/ConfigurationProvider.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/ConfigurationProvider.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/notion/IdDeserializationStrategy.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/notion/IdDeserializationStrategy.java
+    # Child of IdDeserializationStrategy.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/EntityAndPropertiesContainer.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/EntityAndPropertiesContainer.java
+    # Child of IdDeserializationStrategy.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/error/TypeToken.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/error/TypeToken.java
+    # Child of IdDeserializationStrategy.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/Relation.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/Relation.java
+    # Child of IdDeserializationStrategy.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/RelationProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/RelationProperty.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/html/Main.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/html/Main.java
+    # Child of Main.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/SchemaService.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/SchemaService.java
+    # Child of Main.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/json/JsonObjectType.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/json/JsonObjectType.java
+  - target:
+    - dir: structr-net/target/classes
+      file: org/structr/net/Main.class
+      sourceDir: structr-net/src/main/java
+      sourceFile: org/structr/net/Main.java
+    # Child of Main.class
+    - dir: structr-net/target/classes
+      file: org/structr/net/common/KeyHelper.class
+      sourceDir: structr-net/src/main/java
+      sourceFile: org/structr/net/common/KeyHelper.java
+    # Child of Main.class
+    - dir: structr-net/target/classes
+      file: org/structr/net/peer/Peer.class
+      sourceDir: structr-net/src/main/java
+      sourceFile: org/structr/net/peer/Peer.java
+    # Child of Main.class
+    - dir: structr-net/target/classes
+      file: org/structr/net/protocol/BroadcastMessage.class
+      sourceDir: structr-net/src/main/java
+      sourceFile: org/structr/net/protocol/BroadcastMessage.java
+    # Child of Main.class
+    - dir: structr-net/target/classes
+      file: org/structr/net/protocol/DirectMessage.class
+      sourceDir: structr-net/src/main/java
+      sourceFile: org/structr/net/protocol/DirectMessage.java
+    # Child of Main.class
+    - dir: structr-net/target/classes
+      file: org/structr/net/repository/DefaultRepository.class
+      sourceDir: structr-net/src/main/java
+      sourceFile: org/structr/net/repository/DefaultRepository.java
+  - target:
+    - dir: structr-modules/structr-text-search-module/target/classes
+      file: org/structr/text/FulltextIndexingAgent.class
+      sourceDir: structr-modules/structr-text-search-module/src/main/java
+      sourceFile: org/structr/text/FulltextIndexingAgent.java
+    # Child of FulltextIndexingAgent.class
+    - dir: structr-core/target/classes
+      file: org/structr/agent/Agent.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/agent/Agent.java
+    # Child of FulltextIndexingAgent.class
+    - dir: structr-core/target/classes
+      file: org/structr/agent/ReturnValue.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/agent/ReturnValue.java
+    # Child of FulltextIndexingAgent.class
+    - dir: structr-core/target/classes
+      file: org/structr/agent/Task.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/agent/Task.java
+    # Child of FulltextIndexingAgent.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/fulltext/Indexable.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/fulltext/Indexable.java
+    # Child of FulltextIndexingAgent.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/fulltext/IndexedWord.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/fulltext/IndexedWord.java
+    # Child of FulltextIndexingAgent.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/Person.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/Person.java
+    # Child of FulltextIndexingAgent.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/File.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/File.java
+  - target:
+    - dir: structr-modules/structr-text-search-module/target/classes
+      file: org/structr/text/FulltextIndexerModule.class
+      sourceDir: structr-modules/structr-text-search-module/src/main/java
+      sourceFile: org/structr/text/FulltextIndexerModule.java
+    # Child of FulltextIndexerModule.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/service/LicenseManager.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/service/LicenseManager.java
+    # Child of FulltextIndexerModule.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/fulltext/FulltextIndexer.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/fulltext/FulltextIndexer.java
+    # Child of FulltextIndexerModule.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/AbstractSchemaNode.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/AbstractSchemaNode.java
+    # Child of FulltextIndexerModule.class
+    - dir: structr-core/target/classes
+      file: org/structr/module/StructrModule.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/module/StructrModule.java
+    # Child of FulltextIndexerModule.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/action/Actions.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/action/Actions.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/graphql/QueryConfig.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graphql/QueryConfig.java
+    # Child of QueryConfig.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/Predicate.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/Predicate.java
+    # Child of QueryConfig.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/search/Occurrence.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/search/Occurrence.java
+    # Child of QueryConfig.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/GraphObjectComparator.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/GraphObjectComparator.java
+    # Child of QueryConfig.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/PathResolvingComparator.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/PathResolvingComparator.java
+    # Child of QueryConfig.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/app/Query.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/app/Query.java
+    # Child of QueryConfig.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/search/SearchAttribute.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/search/SearchAttribute.java
+    # Child of QueryConfig.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/search/SearchAttributeGroup.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/search/SearchAttributeGroup.java
+    # Child of QueryConfig.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/search/SourceSearchAttribute.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/search/SourceSearchAttribute.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/web/servlet/UploadServlet.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/servlet/UploadServlet.java
+    # Child of UploadServlet.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/RetryException.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/RetryException.java
+    # Child of UploadServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/AccessMode.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/AccessMode.java
+    # Child of UploadServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/PathHelper.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/PathHelper.java
+    # Child of UploadServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/Permission.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/Permission.java
+    # Child of UploadServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/ThreadLocalMatcher.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/ThreadLocalMatcher.java
+    # Child of UploadServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/IJsonInput.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/IJsonInput.java
+    # Child of UploadServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/JsonInput.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/JsonInput.java
+    # Child of UploadServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/JsonSingleInput.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/JsonSingleInput.java
+    # Child of UploadServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/auth/exception/AuthenticationException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/auth/exception/AuthenticationException.java
+    # Child of UploadServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/rest/JsonInputGSONAdapter.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/rest/JsonInputGSONAdapter.java
+    # Child of UploadServlet.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/service/HttpServiceServlet.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/service/HttpServiceServlet.java
+    # Child of UploadServlet.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/service/StructrHttpServiceConfig.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/service/StructrHttpServiceConfig.java
+    # Child of UploadServlet.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/auth/UiAuthenticator.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/auth/UiAuthenticator.java
+    # Child of UploadServlet.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/common/FileHelper.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/common/FileHelper.java
+    # Child of UploadServlet.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/AbstractFile.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/AbstractFile.java
+    # Child of UploadServlet.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/Folder.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/Folder.java
+    # Child of UploadServlet.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/Image.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/Image.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/BulkSetNodePropertiesCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/BulkSetNodePropertiesCommand.java
+  - target:
+    - dir: structr-modules/structr-advanced-mail-module/target/classes
+      file: org/structr/mail/service/MailService.class
+      sourceDir: structr-modules/structr-advanced-mail-module/src/main/java
+      sourceFile: org/structr/mail/service/MailService.java
+    # Child of MailService.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/service/RunnableService.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/service/RunnableService.java
+    # Child of MailService.class
+    - dir: structr-modules/structr-advanced-mail-module/target/classes
+      file: org/structr/mail/entity/EMailMessage.class
+      sourceDir: structr-modules/structr-advanced-mail-module/src/main/java
+      sourceFile: org/structr/mail/entity/EMailMessage.java
+    # Child of MailService.class
+    - dir: structr-modules/structr-advanced-mail-module/target/classes
+      file: org/structr/mail/entity/Mailbox.class
+      sourceDir: structr-modules/structr-advanced-mail-module/src/main/java
+      sourceFile: org/structr/mail/entity/Mailbox.java
+  - target:
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/servlet/ResourceHelper.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/servlet/ResourceHelper.java
+    # Child of ResourceHelper.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/Value.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/Value.java
+    # Child of ResourceHelper.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/exception/IllegalPathException.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/exception/IllegalPathException.java
+    # Child of ResourceHelper.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/exception/NoResultsException.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/exception/NoResultsException.java
+    # Child of ResourceHelper.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/exception/NotFoundException.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/exception/NotFoundException.java
+    # Child of ResourceHelper.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/resource/Resource.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/resource/Resource.java
+    # Child of ResourceHelper.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/resource/ViewFilterResource.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/resource/ViewFilterResource.java
+  - target:
+    - dir: structr-modules/structr-payment-module/target/classes
+      file: org/structr/payment/impl/paypal/PayPalPaymentProvider.class
+      sourceDir: structr-modules/structr-payment-module/src/main/java
+      sourceFile: org/structr/payment/impl/paypal/PayPalPaymentProvider.java
+    # Child of PayPalPaymentProvider.class
+    - dir: structr-modules/structr-payment-module/target/classes
+      file: org/structr/payment/api/BeginCheckoutResponse.class
+      sourceDir: structr-modules/structr-payment-module/src/main/java
+      sourceFile: org/structr/payment/api/BeginCheckoutResponse.java
+    # Child of PayPalPaymentProvider.class
+    - dir: structr-modules/structr-payment-module/target/classes
+      file: org/structr/payment/api/ConfirmCheckoutResponse.class
+      sourceDir: structr-modules/structr-payment-module/src/main/java
+      sourceFile: org/structr/payment/api/ConfirmCheckoutResponse.java
+    # Child of PayPalPaymentProvider.class
+    - dir: structr-modules/structr-payment-module/target/classes
+      file: org/structr/payment/api/Payment.class
+      sourceDir: structr-modules/structr-payment-module/src/main/java
+      sourceFile: org/structr/payment/api/Payment.java
+    # Child of PayPalPaymentProvider.class
+    - dir: structr-modules/structr-payment-module/target/classes
+      file: org/structr/payment/api/PaymentItem.class
+      sourceDir: structr-modules/structr-payment-module/src/main/java
+      sourceFile: org/structr/payment/api/PaymentItem.java
+    # Child of PayPalPaymentProvider.class
+    - dir: structr-modules/structr-payment-module/target/classes
+      file: org/structr/payment/api/PaymentProvider.class
+      sourceDir: structr-modules/structr-payment-module/src/main/java
+      sourceFile: org/structr/payment/api/PaymentProvider.java
+    # Child of PayPalPaymentProvider.class
+    - dir: structr-modules/structr-payment-module/target/classes
+      file: org/structr/payment/api/PaymentState.class
+      sourceDir: structr-modules/structr-payment-module/src/main/java
+      sourceFile: org/structr/payment/api/PaymentState.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/web/common/TestHelper.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/common/TestHelper.java
+    # Child of TestHelper.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/RelationshipInterface.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/RelationshipInterface.java
+    # Child of TestHelper.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/User.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/User.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/SyncCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/SyncCommand.java
+    # Child of SyncCommand.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/graph/Label.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/graph/Label.java
+    # Child of SyncCommand.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/graph/PropertyContainer.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/graph/PropertyContainer.java
+    # Child of SyncCommand.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/graph/Relationship.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/graph/Relationship.java
+    # Child of SyncCommand.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/graph/RelationshipType.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/graph/RelationshipType.java
+    # Child of SyncCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/AbstractRelationship.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/AbstractRelationship.java
+  - target:
+    - dir: structr-modules/structr-file-access-module/target/classes
+      file: org/structr/files/ssh/shell/CatCommand.class
+      sourceDir: structr-modules/structr-file-access-module/src/main/java
+      sourceFile: org/structr/files/ssh/shell/CatCommand.java
+    # Child of CatCommand.class
+    - dir: structr-modules/structr-file-access-module/target/classes
+      file: org/structr/files/ssh/StructrShellCommand.class
+      sourceDir: structr-modules/structr-file-access-module/src/main/java
+      sourceFile: org/structr/files/ssh/StructrShellCommand.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/web/function/MaintenanceFunction.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/function/MaintenanceFunction.java
+    # Child of MaintenanceFunction.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/resource/MaintenanceParameterResource.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/resource/MaintenanceParameterResource.java
+    # Child of MaintenanceFunction.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/action/ActionContext.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/action/ActionContext.java
+  - target:
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/servlet/CsvServlet.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/servlet/CsvServlet.java
+    # Child of CsvServlet.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/util/ResultStream.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/util/ResultStream.java
+    # Child of CsvServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/auth/Authenticator.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/auth/Authenticator.java
+    # Child of CsvServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/NodeFactory.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/NodeFactory.java
+    # Child of CsvServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/TransactionCommand.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/TransactionCommand.java
+    # Child of CsvServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/DateProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/DateProperty.java
+    # Child of CsvServlet.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/RestMethodResult.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/RestMethodResult.java
+    # Child of CsvServlet.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/common/CsvHelper.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/common/CsvHelper.java
+    # Child of CsvServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/parser/DatePropertyParser.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/parser/DatePropertyParser.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/schema/parser/CustomPropertyParser.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/parser/CustomPropertyParser.java
+    # Child of CustomPropertyParser.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/Schema.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/Schema.java
+  - target:
+    - dir: structr-modules/structr-file-access-module/target/classes
+      file: org/structr/files/ssh/shell/CdCommand.class
+      sourceDir: structr-modules/structr-file-access-module/src/main/java
+      sourceFile: org/structr/files/ssh/shell/CdCommand.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/web/importer/Importer.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/importer/Importer.java
+    # Child of Importer.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/CaseHelper.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/CaseHelper.java
+    # Child of Importer.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/error/UnlicensedScriptException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/error/UnlicensedScriptException.java
+    # Child of Importer.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/StringProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/StringProperty.java
+    # Child of Importer.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/common/HttpHelper.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/common/HttpHelper.java
+    # Child of Importer.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/importer/SchemaJsonImporter.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/importer/SchemaJsonImporter.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/common/ImageHelper.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/common/ImageHelper.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/diff/CreateOperation.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/diff/CreateOperation.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/diff/DeleteOperation.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/diff/DeleteOperation.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/diff/InvertibleModificationOperation.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/diff/InvertibleModificationOperation.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/diff/MoveOperation.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/diff/MoveOperation.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/diff/UpdateOperation.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/diff/UpdateOperation.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/LinkSource.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/LinkSource.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/Linkable.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/Linkable.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/dom/Content.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/dom/Content.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/html/Body.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/html/Body.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/html/Head.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/html/Head.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/html/Input.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/html/Input.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/maintenance/DeployCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/maintenance/DeployCommand.java
+    # Child of Importer.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/property/CustomHtmlAttributeProperty.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/property/CustomHtmlAttributeProperty.java
+  - target:
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/resource/StaticRelationshipResource.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/resource/StaticRelationshipResource.java
+    # Child of StaticRelationshipResource.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/util/PagingIterable.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/util/PagingIterable.java
+    # Child of StaticRelationshipResource.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/entity/OtherNodeTypeRelationFilter.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/entity/OtherNodeTypeRelationFilter.java
+    # Child of StaticRelationshipResource.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/notion/Notion.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/notion/Notion.java
+    # Child of StaticRelationshipResource.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/ArrayProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/ArrayProperty.java
+    # Child of StaticRelationshipResource.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/DoubleProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/DoubleProperty.java
+    # Child of StaticRelationshipResource.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/EndNode.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/EndNode.java
+    # Child of StaticRelationshipResource.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/IntProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/IntProperty.java
+    # Child of StaticRelationshipResource.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/LongProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/LongProperty.java
+    # Child of StaticRelationshipResource.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/StartNode.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/StartNode.java
+  - target:
+    - dir: structr-modules/structr-messaging-engine-module/target/classes
+      file: org/structr/messaging/engine/MessageEngineModule.class
+      sourceDir: structr-modules/structr-messaging-engine-module/src/main/java
+      sourceFile: org/structr/messaging/engine/MessageEngineModule.java
+    # Child of MessageEngineModule.class
+    - dir: structr-modules/structr-messaging-engine-module/target/classes
+      file: org/structr/messaging/engine/entities/MessageClient.class
+      sourceDir: structr-modules/structr-messaging-engine-module/src/main/java
+      sourceFile: org/structr/messaging/engine/entities/MessageClient.java
+    # Child of MessageEngineModule.class
+    - dir: structr-modules/structr-messaging-engine-module/target/classes
+      file: org/structr/messaging/engine/entities/MessageSubscriber.class
+      sourceDir: structr-modules/structr-messaging-engine-module/src/main/java
+      sourceFile: org/structr/messaging/engine/entities/MessageSubscriber.java
+    # Child of MessageEngineModule.class
+    - dir: structr-modules/structr-messaging-engine-module/target/classes
+      file: org/structr/messaging/implementation/kafka/entity/KafkaClient.class
+      sourceDir: structr-modules/structr-messaging-engine-module/src/main/java
+      sourceFile: org/structr/messaging/implementation/kafka/entity/KafkaClient.java
+    # Child of MessageEngineModule.class
+    - dir: structr-modules/structr-messaging-engine-module/target/classes
+      file: org/structr/messaging/implementation/mqtt/entity/MQTTClient.class
+      sourceDir: structr-modules/structr-messaging-engine-module/src/main/java
+      sourceFile: org/structr/messaging/implementation/mqtt/entity/MQTTClient.java
+  - target:
+    - dir: structr-modules/structr-api-builder-module/target/classes
+      file: org/structr/flow/FlowDeploymentHandler.class
+      sourceDir: structr-modules/structr-api-builder-module/src/main/java
+      sourceFile: org/structr/flow/FlowDeploymentHandler.java
+    # Child of FlowDeploymentHandler.class
+    - dir: structr-core/target/classes
+      file: org/structr/module/api/DeployableEntity.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/module/api/DeployableEntity.java
+    # Child of FlowDeploymentHandler.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/common/AbstractMapComparator.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/common/AbstractMapComparator.java
+  - target:
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/resource/RelationshipResource.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/resource/RelationshipResource.java
+    # Child of RelationshipResource.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/graph/Direction.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/graph/Direction.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/schema/action/ActionContext.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/action/ActionContext.java
+    # Child of ActionContext.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/AdvancedMailContainer.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/AdvancedMailContainer.java
+    # Child of ActionContext.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/ContextStore.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/ContextStore.java
+    # Child of ActionContext.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/script/Scripting.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/script/Scripting.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/web/servlet/HtmlServlet.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/servlet/HtmlServlet.java
+    # Child of HtmlServlet.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/auth/AuthHelper.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/auth/AuthHelper.java
+    # Child of HtmlServlet.class
+    - dir: structr-core/target/classes
+      file: org/structr/util/Base64.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/util/Base64.java
+    # Child of HtmlServlet.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/common/RenderContext.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/common/RenderContext.java
+    # Child of HtmlServlet.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/common/StringRenderBuffer.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/common/StringRenderBuffer.java
+    # Child of HtmlServlet.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/entity/Site.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/entity/Site.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/websocket/command/dom/WrapDOMNodeCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/websocket/command/dom/WrapDOMNodeCommand.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/function/GrantFunction.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/function/GrantFunction.java
+    # Child of GrantFunction.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/Permissions.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/Permissions.java
+    # Child of GrantFunction.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/error/ArgumentCountException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/error/ArgumentCountException.java
+    # Child of GrantFunction.class
+    - dir: structr-core/target/classes
+      file: org/structr/common/error/ArgumentNullException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/common/error/ArgumentNullException.java
+    # Child of GrantFunction.class
+    - dir: structr-core/target/classes
+      file: org/structr/schema/action/Function.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/schema/action/Function.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/function/RevokeFunction.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/function/RevokeFunction.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/script/StructrScriptable.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/script/StructrScriptable.java
+    # Child of StructrScriptable.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/Export.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/Export.java
+    # Child of StructrScriptable.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/function/Functions.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/function/Functions.java
+    # Child of StructrScriptable.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/function/GrantFunction.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/function/GrantFunction.java
+    # Child of StructrScriptable.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/parser/CacheExpression.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/parser/CacheExpression.java
+    # Child of StructrScriptable.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/parser/ConstantExpression.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/parser/ConstantExpression.java
+    # Child of StructrScriptable.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/EnumProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/EnumProperty.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/function/IsAllowedFunction.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/function/IsAllowedFunction.java
+  - target:
+    - dir: structr-modules/structr-api-builder-module/target/classes
+      file: org/structr/flow/impl/FlowFunction.class
+      sourceDir: structr-modules/structr-api-builder-module/src/main/java
+      sourceFile: org/structr/flow/impl/FlowFunction.java
+    # Child of FlowFunction.class
+    - dir: structr-modules/structr-api-builder-module/target/classes
+      file: org/structr/flow/api/FlowResult.class
+      sourceDir: structr-modules/structr-api-builder-module/src/main/java
+      sourceFile: org/structr/flow/api/FlowResult.java
+    # Child of FlowFunction.class
+    - dir: structr-modules/structr-api-builder-module/target/classes
+      file: org/structr/flow/engine/Context.class
+      sourceDir: structr-modules/structr-api-builder-module/src/main/java
+      sourceFile: org/structr/flow/engine/Context.java
+    # Child of FlowFunction.class
+    - dir: structr-modules/structr-api-builder-module/target/classes
+      file: org/structr/flow/engine/FlowEngine.class
+      sourceDir: structr-modules/structr-api-builder-module/src/main/java
+      sourceFile: org/structr/flow/engine/FlowEngine.java
+  - target:
+    - dir: structr-modules/structr-translation-module/target/classes
+      file: org/structr/translation/TranslateFunction.class
+      sourceDir: structr-modules/structr-translation-module/src/main/java
+      sourceFile: org/structr/translation/TranslateFunction.java
+    # Child of TranslateFunction.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/function/UiFunction.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/function/UiFunction.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/console/rest/GetRestCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/console/rest/GetRestCommand.java
+    # Child of GetRestCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/console/Console.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/console/Console.java
+  - target:
+    - dir: structr-modules/structr-messaging-engine-module/target/classes
+      file: org/structr/messaging/implementation/kafka/entity/KafkaClient.class
+      sourceDir: structr-modules/structr-messaging-engine-module/src/main/java
+      sourceFile: org/structr/messaging/implementation/kafka/entity/KafkaClient.java
+    # Child of KafkaClient.class
+    - dir: structr-db-driver-api/target/classes
+      file: org/structr/api/NotInTransactionException.class
+      sourceDir: structr-db-driver-api/src/main/java
+      sourceFile: org/structr/api/NotInTransactionException.java
+    # Child of KafkaClient.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/graph/ModificationQueue.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/graph/ModificationQueue.java
+  - target:
+    - dir: structr-modules/structr-file-access-module/target/classes
+      file: org/structr/files/ssh/StructrSSHFileSystem.class
+      sourceDir: structr-modules/structr-file-access-module/src/main/java
+      sourceFile: org/structr/files/ssh/StructrSSHFileSystem.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/websocket/command/LoginCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/websocket/command/LoginCommand.java
+    # Child of LoginCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/auth/exception/PasswordChangeRequiredException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/auth/exception/PasswordChangeRequiredException.java
+    # Child of LoginCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/auth/exception/TooManyFailedLoginAttemptsException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/auth/exception/TooManyFailedLoginAttemptsException.java
+    # Child of LoginCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/auth/exception/TwoFactorAuthenticationFailedException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/auth/exception/TwoFactorAuthenticationFailedException.java
+    # Child of LoginCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/auth/exception/TwoFactorAuthenticationRequiredException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/auth/exception/TwoFactorAuthenticationRequiredException.java
+    # Child of LoginCommand.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/auth/exception/TwoFactorAuthenticationTokenInvalidException.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/auth/exception/TwoFactorAuthenticationTokenInvalidException.java
+    # Child of LoginCommand.class
+    - dir: structr-rest/target/classes
+      file: org/structr/rest/auth/SessionHelper.class
+      sourceDir: structr-rest/src/main/java
+      sourceFile: org/structr/rest/auth/SessionHelper.java
+    # Child of LoginCommand.class
+    - dir: structr-ui/target/classes
+      file: org/structr/web/function/BarcodeFunction.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/function/BarcodeFunction.java
+  - target:
+    - dir: structr-modules/structr-excel-module/target/classes
+      file: org/structr/excel/ToExcelFunction.class
+      sourceDir: structr-modules/structr-excel-module/src/main/java
+      sourceFile: org/structr/excel/ToExcelFunction.java
+    # Child of ToExcelFunction.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/function/LocalizeFunction.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/function/LocalizeFunction.java
+  - target:
+    - dir: structr-modules/structr-data-feeds-module/target/classes
+      file: org/structr/feed/entity/DataFeed.class
+      sourceDir: structr-modules/structr-data-feeds-module/src/main/java
+      sourceFile: org/structr/feed/entity/DataFeed.java
+  - target:
+    - dir: structr-neo4j-bolt-driver/target/classes
+      file: org/structr/bolt/index/AbstractResultStream.class
+      sourceDir: structr-neo4j-bolt-driver/src/main/java
+      sourceFile: org/structr/bolt/index/AbstractResultStream.java
+    # Child of AbstractResultStream.class
+    - dir: structr-neo4j-bolt-driver/target/classes
+      file: org/structr/bolt/BoltDatabaseService.class
+      sourceDir: structr-neo4j-bolt-driver/src/main/java
+      sourceFile: org/structr/bolt/BoltDatabaseService.java
+  - target:
+    - dir: structr-ui/target/classes
+      file: org/structr/web/maintenance/DeployDataCommand.class
+      sourceDir: structr-ui/src/main/java
+      sourceFile: org/structr/web/maintenance/DeployDataCommand.java
+  - target:
+    - dir: structr-core/target/classes
+      file: org/structr/core/function/ChangelogFunction.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/function/ChangelogFunction.java
+    # Child of ChangelogFunction.class
+    - dir: structr-core/target/classes
+      file: org/structr/core/property/EndNodeProperty.class
+      sourceDir: structr-core/src/main/java
+      sourceFile: org/structr/core/property/EndNodeProperty.java

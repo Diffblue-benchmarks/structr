@@ -1,84 +1,79 @@
-# Tested on Deeptest release 1.12.0
-cbmcArguments:
-  java-generate-no-comments: true
+cbmcArguments: {java-generate-no-comments: true, no-trivial-tests: true}
 phases:
--
-  timeout: 60
-  cbmcArguments:
-    max-nondet-array-length: 10
+- cbmcArguments:
+    do-not-test-methods-with-access: &id001 [private]
+    java-assume-inputs-non-null: true
+    java-test-input-factory-bmc-max-mutators: 10
+    java-test-input-factory-bmc-recursion-limit: 10
+    java-test-input-factory-entry-point: (.*)
+    java-test-output-entry-point: (.*)
+    max-nondet-array-length: 2
+    max-nondet-tree-depth: 1
+    refine: true
+    string-input-value: [sample, SAMPLE, the quick brown fox]
     unwind: 1
-    string-non-empty: true
+  timeout: 20
+- cbmcArguments:
+    do-not-test-methods-with-access: *id001
     java-assume-inputs-non-null: true
--
-  timeout: 60
-  cbmcArguments:
-    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    java-test-input-factory-bmc-max-mutators: 10
+    java-test-input-factory-bmc-recursion-limit: 10
+    java-test-input-factory-entry-point: (.*)
+    java-test-output-entry-point: (.*)
+    max-nondet-array-length: 2
+    max-nondet-string-length: 8
+    max-nondet-tree-depth: 1
+    refine: true
+    string-non-empty: true
+    string-printable: true
+    unwind: 2
+  timeout: 40
+- cbmcArguments:
+    do-not-test-methods-with-access: *id001
+    java-assume-inputs-non-null: true
+    java-test-input-factory-bmc-max-mutators: 10
+    java-test-input-factory-bmc-recursion-limit: 10
+    java-test-input-factory-entry-point: (.*)
+    java-test-output-entry-point: (.*)
     max-nondet-array-length: 10
-    unwind: 1
--
-  timeout: 60
-  cbmcArguments:
-    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
-    max-nondet-array-length: 20
-    unwind: 2
+    max-nondet-string-length: 8
+    max-nondet-tree-depth: 2
+    refine: true
     string-non-empty: true
-    java-assume-inputs-non-null: true
--
-  timeout: 60
-  cbmcArguments:
-    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
-    max-nondet-array-length: 20
-    unwind: 2
--
-  timeout: 60
-  cbmcArguments:
-    classpath: '/tools/cbmc/models.jar:.'
-    max-nondet-array-length: 30
-    max-nondet-string-length: 10
+    string-printable: true
     unwind: 3
-    string-non-empty: true
-    java-assume-inputs-non-null: true
--
   timeout: 60
-  cbmcArguments:
-    classpath: '/tools/cbmc/models.jar:.'
-    max-nondet-array-length: 30
-    max-nondet-string-length: 10
-    unwind: 3
--
-  timeout: 120
-  cbmcArguments:
-    classpath: '/tools/cbmc/models.jar:.'
-    max-nondet-array-length: 30
-    max-nondet-string-length: 10
-    unwind: 4
-    load-containing-class-only: true
-    string-non-empty: true
-    java-assume-inputs-non-null: true
--
-  timeout: 120
-  cbmcArguments:
-    classpath: '/tools/cbmc/models.jar:.'
+- cbmcArguments:
+    do-not-test-methods-with-access: &id002 [private]
+    java-assume-inputs-non-null: false
+    java-test-input-factory-bmc-max-mutators: 6
+    java-test-input-factory-bmc-recursion-limit: 6
+    java-test-input-factory-entry-point: &id003 [<init>, set.*, add.*]
+    java-test-output-entry-point: &id004 [get.*, is.*, has.*]
     max-nondet-array-length: 50
-    max-nondet-string-length: 50
-    unwind: 4
-    load-containing-class-only: true
--
-  timeout: 120
-  cbmcArguments:
-    classpath: '/tools/cbmc/models.jar:.'
-    max-nondet-array-length: 130
-    max-nondet-string-length: 110
-    unwind: 10
-    string-non-empty: true
-    java-assume-inputs-non-null: true
--
-  timeout: 120
-  cbmcArguments:
-    classpath: '/tools/cbmc/models.jar:.'
-    max-nondet-array-length: 300
+    max-nondet-string-length: 16
+    max-nondet-tree-depth: 4
+    refine: false
+    string-printable: true
+    unwind: 5
+  timeout: 60
+- cbmcArguments:
+    do-not-test-methods-with-access: *id002
+    java-assume-inputs-non-null: false
+    java-test-input-factory-bmc-max-mutators: 6
+    java-test-input-factory-bmc-recursion-limit: 6
+    java-test-input-factory-entry-point: *id003
+    java-test-output-entry-point: *id004
+    max-nondet-array-length: 50
     max-nondet-string-length: 100
+    max-nondet-tree-depth: 4
+    refine: false
+    string-printable: true
     unwind: 10
+  timeout: 60
+- cbmcArguments: {java-assume-inputs-non-null: false, max-nondet-array-length: 300,
+    max-nondet-tree-depth: 8, refine: false, unwind: 10}
+  timeout: 120
 units:
   - target:
     - dir: structr-core/target/classes
